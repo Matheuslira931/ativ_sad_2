@@ -60,6 +60,12 @@ item venda
 
 
 
+# Criação da terceira tabela
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/cd64d8e3-262a-4ca0-a7d4-8ff03b68fbe2)
+
+diagrama da terceira tabela
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/61635c72-885f-403e-b7f7-f4d2789e591e)
+
 
 
 
