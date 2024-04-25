@@ -109,3 +109,5 @@ Dimenssão  item venda
 ![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/2efc3d94-3c0e-44b9-93c1-9acf17f85702)
 
 
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/b7b0b4f5-b85b-4e52-bab6-74729ec10830)
+
