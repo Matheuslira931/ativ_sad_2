@@ -2,15 +2,6 @@
 USE third_db_atv2;
 
 
-DELETE FROM dim_item_venda where id >= 0;
-DELETE FROM fato_venda where id >= 0;
-DELETE FROM dim_cliente where id >= 0;
-DELETE FROM dim_endereco where id >= 0;
-DELETE FROM dim_produto where id >= 0;
-DELETE FROM dim_dependente where id >= 0;
-DELETE FROM dim_vendedor where id >= 0;
-
-
 INSERT INTO dim_vendedor (id, nome, sexo, perccomissao, matricula)
 SELECT id, nome, sexo, perccomissao, matricula
 FROM second_db_atv2.vendedor;

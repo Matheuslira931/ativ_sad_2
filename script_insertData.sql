@@ -2,15 +2,6 @@
 USE second_db_atv2;
 
 
-DELETE FROM item_venda where id >= 0;
-DELETE FROM venda where id >= 0;
-DELETE FROM cliente where id >= 0;
-DELETE FROM endereco where id >= 0;
-DELETE FROM produto where id >= 0;
-DELETE FROM dependente where id >= 0;
-DELETE FROM vendedor where id >= 0;
-
-
 INSERT INTO vendedor (id, nome, sexo, perccomissao, matricula)
 SELECT cdvdd, nmvdd, IF(sxvdd > 0, 'M', 'F'), perccomissao, matfunc
 FROM first_db_ativ2.tbvdd;
