@@ -21,40 +21,37 @@ SELECT cddep, nmdep, dtnasc, trim(sxdep), inepescola, cdvdd
 FROM first_db_ativ2.tbdep;
 
 
-
 INSERT INTO produto (id, nome,  tp_produto, unidade, saldo, produto_status)
 SELECT cdpro, nmpro, tppro, undpro, slpro, stpro
 FROM first_db_ativ2.tbpro;
 
 
-INSERT INTO endereco (cidade, estado, pais)
-SELECT distinct cidcli, estcli, paicli
+
+INSERT INTO endereco (pais, estado, cidade)
+SELECT distinct paicli, estcli, cidcli 
 FROM first_db_ativ2.tbven;
 
 
 
-INSERT INTO cliente (id, nome, agencia, classificacao, sexo_id, endereco_id)
-SELECT distinct cdcli, nmcli, agecli, clacli, sexo.id, endereco.id
+INSERT INTO cliente (id, nome, codigo_agencia, numero_classificacao, sexo, endereco)
+SELECT distinct cdcli, nmcli, agecli, clacli, sxcli, endereco.id
 FROM first_db_ativ2.tbven as tbven
-INNER JOIN sexo ON trim(tbven.sxcli) = sexo.abreviacao
 INNER JOIN endereco on  tbven.cidcli = endereco.cidade
 					and tbven.estcli = endereco.estado
-                    and tbven.paicli = endereco.pais
-WHERE cdcli IN (SELECT MAX(cdcli) FROM first_db_ativ2.tbven  GROUP BY cdcli);
+                    and tbven.paicli = endereco.pais;
 
-INSERT INTO venda (id, dtven, cliente_id, canal_id, status_id, vendedor_id, deletado)
-SELECT distinct cdven, dtven, cliente.id, canal_venda.id, status_venda.id, vendedor.id,
-				IF(deleted > 0, 1, 0)
+
+INSERT INTO venda (id, dtven, cliente, canal, venda_status, vendedor, deletado)
+SELECT distinct cdven, dtven, cliente.id, canal, stven, vendedor.id,
+				IF(deleted > 0, 'Sim', 'Nao')
 FROM first_db_ativ2.tbven as tbven
 INNER JOIN cliente ON tbven.cdcli = cliente.id
-INNER JOIN canal_venda on tbven.canal = canal_venda.nome
-INNER JOIN status_venda on tbven.stven = status_venda.id
 INNER JOIN vendedor on tbven.cdvdd = vendedor.id;
 
 
 
-INSERT INTO item_venda (id, quantidade, vlr_unitario, vlr_total, produto_id, venda_id)
-SELECT distinct cdvenitem, qtven, vruven, qtven*vruven, produto.id, venda.id
+INSERT INTO item_venda (id, produto, quantidade, venda, valor_unitario, valor_total)
+SELECT distinct cdvenitem, produto.id, qtven, venda.id, vruven, qtven*vruven
 FROM first_db_ativ2.tbven_item as item
 INNER JOIN produto ON item.cdpro = produto.id
 INNER JOIN venda on item.cdven = venda.id;

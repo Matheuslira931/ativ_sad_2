@@ -1,57 +1,76 @@
 
+CREATE DATABASE second_db_atv2;
+
 USE second_db_atv2;
 
 
-DELETE FROM item_venda where id >= 0;
-DELETE FROM venda where id >= 0;
-DELETE FROM cliente where id >= 0;
-DELETE FROM endereco where id >= 0;
-DELETE FROM produto where id >= 0;
-DELETE FROM dependente where id >= 0;
-DELETE FROM vendedor where id >= 0;
+CREATE TABLE endereco(
+	id   	smallint AUTO_INCREMENT PRIMARY KEY,
+    pais    varchar(35) NULL,
+    estado  varchar(35) NULL,
+    cidade  varchar(35) NULL
+);
+
+CREATE TABLE vendedor (
+   id           smallint AUTO_INCREMENT PRIMARY KEY,
+   nome         varchar(20),
+   sexo      varchar(1),
+   perccomissao decimal(19,2),
+   matricula    smallint not null
+);
+
+CREATE TABLE dependente (
+   id          INT AUTO_INCREMENT PRIMARY KEY,
+   nome        varchar(20),
+   data_nascimento   date,
+   sexo      varchar(1),
+   inepescola  varchar(10),
+   vendedor smallint,
+   FOREIGN KEY (vendedor) REFERENCES vendedor (id)
+);
+
+CREATE TABLE produto(
+    id 				  smallint AUTO_INCREMENT PRIMARY KEY,
+    nome 			  varchar(30) NULL,
+    tp_produto   varchar(1) NULL,
+    unidade 		  varchar(2) NULL,
+    saldo 			  int NULL,
+    produto_status		  varchar(50) NULL
+);
+
+CREATE TABLE cliente(
+    id   		  smallint AUTO_INCREMENT PRIMARY KEY,
+    nome   		  varchar(30) NULL,
+    codigo_agencia smallint NULL,
+    numero_classificacao smallint NULL,
+    sexo        varchar(1),
+    endereco   smallint,
+    FOREIGN KEY (endereco) REFERENCES endereco (id)
+);
+
+CREATE TABLE venda (
+    id SMALLINT AUTO_INCREMENT PRIMARY KEY,
+    dtven DATE NULL,
+    cliente SMALLINT NULL,
+    canal varchar(12) NOT NULL,
+    venda_status SMALLINT NULL,
+    vendedor SMALLINT NULL,
+    deletado varchar(3) NULL,
+    FOREIGN KEY (cliente)
+        REFERENCES cliente (id),
+    FOREIGN KEY (vendedor)
+        REFERENCES vendedor (id)
+);
+
+CREATE TABLE item_venda(
+    id           smallint AUTO_INCREMENT PRIMARY KEY,
+    produto   smallint NULL,
+    quantidade   int NULL,
+    venda     smallint NULL,
+    valor_unitario decimal(18, 2) NULL,
+    valor_total    decimal(29, 2) NULL,
+    FOREIGN KEY (produto) REFERENCES produto (id),
+    FOREIGN KEY (venda)   REFERENCES venda (id)
+);
 
 
-INSERT INTO vendedor (id, nome, sexo, perccomissao, matricula)
-SELECT cdvdd, nmvdd, IF(sxvdd > 0, 'M', 'F'), perccomissao, matfunc
-FROM first_db_ativ2.tbvdd;
-
-
-INSERT INTO dependente (id, nome, data_nascimento, sexo, inepescola, vendedor)
-SELECT cddep, nmdep, dtnasc, trim(sxdep), inepescola, cdvdd
-FROM first_db_ativ2.tbdep;
-
-
-INSERT INTO produto (id, nome,  tp_produto, unidade, saldo, produto_status)
-SELECT cdpro, nmpro, tppro, undpro, slpro, stpro
-FROM first_db_ativ2.tbpro;
-
-
-
-INSERT INTO endereco (pais, estado, cidade)
-SELECT distinct paicli, estcli, cidcli 
-FROM first_db_ativ2.tbven;
-
-
-
-INSERT INTO cliente (id, nome, codigo_agencia, numero_classificacao, sexo, endereco)
-SELECT distinct cdcli, nmcli, agecli, clacli, sxcli, endereco.id
-FROM first_db_ativ2.tbven as tbven
-INNER JOIN endereco on  tbven.cidcli = endereco.cidade
-					and tbven.estcli = endereco.estado
-                    and tbven.paicli = endereco.pais;
-
-
-INSERT INTO venda (id, dtven, cliente, canal, venda_status, vendedor, deletado)
-SELECT distinct cdven, dtven, cliente.id, canal, stven, vendedor.id,
-				IF(deleted > 0, 'Sim', 'Nao')
-FROM first_db_ativ2.tbven as tbven
-INNER JOIN cliente ON tbven.cdcli = cliente.id
-INNER JOIN vendedor on tbven.cdvdd = vendedor.id;
-
-
-
-INSERT INTO item_venda (id, produto, quantidade, venda, valor_unitario, valor_total)
-SELECT distinct cdvenitem, produto.id, qtven, venda.id, vruven, qtven*vruven
-FROM first_db_ativ2.tbven_item as item
-INNER JOIN produto ON item.cdpro = produto.id
-INNER JOIN venda on item.cdven = venda.id;
