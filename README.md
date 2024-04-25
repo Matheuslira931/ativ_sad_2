@@ -67,7 +67,45 @@ diagrama da terceira tabela
 ![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/61635c72-885f-403e-b7f7-f4d2789e591e)
 
 
+Dimenssão vendedor
+
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/3b0c4d7d-66fe-480b-bc0b-1402844e3d70)
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/5acd7726-d5a9-459e-92e5-0e76f6394605)
 
 
+Dimenssão dependente
+
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/48e855a7-46fd-49d7-8a99-8b81cec4cc55)
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/8ee3bb4a-58b1-4888-88db-f4dd19ee4b1c)
+
+
+Dimenssão produto
+
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/d98f9613-00df-4f74-884b-26d6e3f63a1d)
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/f775d359-5a79-4f66-9c0d-6f6d72c94a51)
+
+
+Dimenssão endereço
+
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/97593695-2a07-4805-8e91-3759c992271b)
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/e4efd3b7-62c6-4407-9412-6d4b741790c7)
+
+
+Dimenssão cliente 
+
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/3994799d-e09e-4bcf-b48d-afd7738a2736)
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/08223d38-4943-4120-ad0a-c9327a9d664b)
+
+
+fato venda
+
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/cc40010a-fd9a-4dae-92e2-6eebaabeaa0a)
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/4fdf33ef-746c-446d-a906-425522010a3b)
+
+
+Dimenssão  item venda 
+
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/08f8b4c7-aa0c-4c65-99b0-d81804765dee)
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/2efc3d94-3c0e-44b9-93c1-9acf17f85702)
 
 
