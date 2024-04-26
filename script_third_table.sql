@@ -4,12 +4,6 @@ CREATE DATABASE third_db_atv2;
 USE third_db_atv2;
 
 
-CREATE TABLE dim_endereco (
-	id   	smallint AUTO_INCREMENT PRIMARY KEY,
-    pais    varchar(35) NULL,
-    estado  varchar(35) NULL,
-    cidade  varchar(35) NULL
-);
 
 CREATE TABLE dim_vendedor (
    id           smallint AUTO_INCREMENT PRIMARY KEY,
@@ -17,6 +11,14 @@ CREATE TABLE dim_vendedor (
    sexo      varchar(1),
    perccomissao decimal(19,2),
    matricula    smallint not null
+);
+
+CREATE TABLE dim_data (
+    id  smallint AUTO_INCREMENT PRIMARY KEY,
+    dataCalendario DATE,
+    ano INT,
+    mes INT,
+    dia INT
 );
 
 CREATE TABLE dim_dependente (
@@ -45,32 +47,33 @@ CREATE TABLE dim_cliente(
     numero_classificacao smallint NULL,
     sexo        varchar(1),
     endereco   smallint,
-    FOREIGN KEY (endereco) REFERENCES dim_endereco (id)
+    pais    varchar(35) NULL,
+    estado  varchar(35) NULL,
+    cidade  varchar(35) NULL
 );
 
 CREATE TABLE fato_venda (
-    id SMALLINT AUTO_INCREMENT PRIMARY KEY,
-    dtven DATE NULL,
+    id SMALLINT,
+    item_id smallint,
+    data_id smallint NULL,
     cliente SMALLINT NULL,
     canal varchar(12) NOT NULL,
     venda_status SMALLINT NULL,
     vendedor SMALLINT NULL,
     deletado varchar(3) NULL,
+    produto   smallint NULL,
+    quantidade   int NULL,
+    valor_unitario decimal(18, 2) NULL,
+    valor_total    decimal(29, 2) NULL,
+    primary key (id, item_id),
+    FOREIGN KEY (produto) REFERENCES dim_produto (id),
     FOREIGN KEY (cliente)
         REFERENCES dim_cliente (id),
     FOREIGN KEY (vendedor)
-        REFERENCES dim_vendedor (id)
+        REFERENCES dim_vendedor (id),
+          FOREIGN KEY (data_id)
+        REFERENCES dim_data (id)
 );
 
-CREATE TABLE dim_item_venda(
-    id           smallint AUTO_INCREMENT PRIMARY KEY,
-    produto   smallint NULL,
-    quantidade   int NULL,
-    venda     smallint NULL,
-    valor_unitario decimal(18, 2) NULL,
-    valor_total    decimal(29, 2) NULL,
-    FOREIGN KEY (produto) REFERENCES dim_produto (id),
-    FOREIGN KEY (venda)   REFERENCES fato_venda (id)
-);
 
 
