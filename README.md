@@ -61,16 +61,25 @@ item venda
 
 
 # Criação da terceira tabela
-![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/cd64d8e3-262a-4ca0-a7d4-8ff03b68fbe2)
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/02843345-bf72-4159-aebd-c21c4dee0bfa)
+
 
 diagrama da terceira tabela
-![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/61635c72-885f-403e-b7f7-f4d2789e591e)
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/b4ed12ec-81e3-4c5b-9433-86ce03f7be03)
+
 
 
 Dimenssão vendedor
 
 ![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/3b0c4d7d-66fe-480b-bc0b-1402844e3d70)
 ![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/5acd7726-d5a9-459e-92e5-0e76f6394605)
+
+
+Dimenssão Data
+
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/7a563946-c437-45fc-a846-89dfafc25988)
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/a2e54016-9cf9-451d-bb29-79717e2909e9)
+
 
 
 Dimenssão dependente
@@ -87,16 +96,16 @@ Dimenssão produto
 
 Dimenssão cliente 
 
-![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/3994799d-e09e-4bcf-b48d-afd7738a2736)
-![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/08223d38-4943-4120-ad0a-c9327a9d664b)
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/dc59f962-f4aa-47a0-ba8c-82e5b7edf7c6)
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/32e8ca75-da50-43ee-b1f9-4843198ac77c)
 
 
 fato venda
 
-![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/cc40010a-fd9a-4dae-92e2-6eebaabeaa0a)
-![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/4fdf33ef-746c-446d-a906-425522010a3b)
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/3da8f943-de28-4c50-90b4-d1cdd15677c5)
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/9b917c36-89f6-48b0-b865-5fc4dd5b208b)
 
 
+![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/7820e861-d57e-4723-944c-bf101485246e)
 
-![image](https://github.com/Matheuslira931/ativ_sad_2/assets/67758248/b7b0b4f5-b85b-4e52-bab6-74729ec10830)
 
